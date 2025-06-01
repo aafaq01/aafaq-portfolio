@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --primary: 160 100% 43%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --border: 0 0% 89.8%;
+    --text-primary: 0 0% 9%;
+    --text-secondary: 0 0% 45%;
+  }
+
+  .dark {
+    --background: 0 0% 2%;
+    --foreground: 0 0% 98%;
+    --primary: 160 100% 43%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --text-primary: 0 0% 98%;
+    --text-secondary: 0 0% 65%;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  .dark body {
+    @apply bg-background text-text-primary;
+  }
+
+  ::selection {
+    @apply bg-primary/20 text-primary;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold;
+  }
+}
+
+@layer components {
+  .button-primary {
+    @apply px-4 py-2 rounded-lg bg-primary text-background font-medium 
+           hover:bg-primary/90 transition-colors;
+  }
+
+  .button-secondary {
+    @apply px-4 py-2 rounded-lg border border-border bg-secondary/50 
+           text-text-primary font-medium hover:bg-secondary transition-colors;
+  }
+
+  .card {
+    @apply bg-secondary/50 backdrop-blur-sm border border-border rounded-xl p-6 
+           hover:bg-secondary/80 transition-all duration-300;
+  }
+
+  .section {
+    @apply py-16;
+  }
+
+  .section-title {
+    @apply text-3xl font-bold mb-8;
+  }
+
+  .section-subtitle {
+    @apply text-xl font-semibold mb-4 text-primary;
+  }
+
+  .grid-list {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6;
+  }
+
+  .info-card {
+    @apply flex flex-col p-4 rounded-xl bg-secondary/30 border border-border;
+  }
+
+  .info-card-title {
+    @apply text-sm text-text-secondary mb-1;
+  }
+
+  .info-card-content {
+    @apply text-sm;
+  }
+}
+
+.container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.nav-link {
+  @apply text-text-secondary hover:text-primary transition-colors duration-300;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-secondary/50 rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/20 rounded-full hover:bg-primary/30 transition-colors;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Smooth transitions */
+* {
+  @apply transition-colors duration-200;
+} 
