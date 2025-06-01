@@ -22,16 +22,17 @@ export default function RootLayout({
           <div className="min-h-screen bg-background">
             {/* Mobile Layout */}
             <div className="sm:hidden flex flex-col h-screen">
-              {/* Top Bar */}
-              <div className="p-4">
-                <TopBar />
-              </div>
-
-              {/* Main Content Area - Scrollable */}
-              <div className="flex-1 overflow-y-auto p-4">
-                <main className="rounded-xl border border-border p-4">
-                  {children}
-                </main>
+              {/* Scrollable Content Area including TopBar */}
+              <div className="flex-1 overflow-y-auto">
+                <div className="p-4 space-y-4">
+                  {/* Top Bar */}
+                  <TopBar />
+                  
+                  {/* Main Content */}
+                  <main className="rounded-xl border border-border p-4">
+                    {children}
+                  </main>
+                </div>
               </div>
 
               {/* Navigation component will render fixed at bottom automatically */}
